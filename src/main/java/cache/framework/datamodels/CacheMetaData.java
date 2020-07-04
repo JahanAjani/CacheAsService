@@ -5,16 +5,18 @@ import cache.framework.constants.CacheType;
 public class CacheMetaData {
 	private CacheType cacheType;
 	private int size;
+	
+	public CacheMetaData(CacheType cacheType, int size) {
+		this.cacheType = cacheType;
+		this.size = size;
+	}
+	
 	public CacheType getCacheType() {
 		return cacheType;
 	}
-	public void setCacheType(CacheType cacheType) {
-		this.cacheType = cacheType;
-	}
+	
 	public int getSize() {
 		return size;
 	}
-	public void setSize(int size) {
-		this.size = size;
-	}
+
 }
