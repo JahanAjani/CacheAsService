@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import cache.framework.core.manager.CacheManager;
 import cache.framework.rest.BaseResponse;
 import cache.framework.rest.CacheGetResponse;
+import cache.framework.rest.auth.AuthManager;
+import cache.framework.rest.auth.AuthResponse;
 import cache.framework.rest.data.CacheInputData;
 import cache.framework.rest.data.parser.CacheDataParser;
 
@@ -17,12 +19,22 @@ import cache.framework.rest.data.parser.CacheDataParser;
 public class CacheController {
  
 	@Autowired
+	private AuthManager authManager;
+	@Autowired
 	private CacheDataParser cacheDataParser;
 	
 	@Autowired
 	private CacheManager cacheManager;
 	
-	
+	@RequestMapping(value = "/v1/auth", method = RequestMethod.GET, produces = "application/json")
+	public AuthResponse auth(@RequestParam(value = "custID") Integer customerID) { 
+		AuthResponse response;
+		
+		response = getAuthResponse(customerID);
+		 
+		return response;
+	}
+
 	@RequestMapping(value = "/put", method = RequestMethod.POST, produces = "application/json")
 	public BaseResponse put(@RequestBody String cacheInput) { 
 		BaseResponse response;
@@ -62,5 +74,15 @@ public class CacheController {
 		res.setSuccess(cacheManager.put(cacheInputData));
 		
 		return res;
+	}
+	
+	private AuthResponse getAuthResponse(Integer customerID) {
+		String token = authManager.auth(customerID);
+		AuthResponse authResponse = new AuthResponse();
+		if(token  != null) {
+			authResponse.setAuthToken(token);
+			authResponse.setSuccess(true);
+		}
+		return authResponse;
 	}
 }
