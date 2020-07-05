@@ -11,13 +11,18 @@ To add new cache type implement cache interface.
 - Go to browser/postman all apis are hosted at `localhost:8080`
 
 ### Currently supported API and usage:
-1. To add value to cache:
+1. Auth api to get valid unique auth-token for user:
+
+	- API: `/cache/v1/auth?custID=<Integer customer ID>`
+	- Customer ID is current hardcoded so, pass ID from range [1001-1003].
+	
+2. To add value to cache:
 
 	- API: `/cache/set`
 	- body params:
 		- "key": key
 		- "value": value
-2. To retrieve value from cache:
+3. To retrieve value from cache:
 	
 	- API: `/cache/get?key=<pass key here>`
 	-example: /cache/get?key=snapshot1
