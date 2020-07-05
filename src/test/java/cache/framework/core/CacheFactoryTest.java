@@ -12,9 +12,8 @@ public class CacheFactoryTest {
 	
 	@Test
 	public void testGetLRUCacheInstance() {
-		CacheFactory cacheFactory = new CacheFactory();
 		CacheMetaData cacheMetaData = new CacheMetaData(CacheType.LRU, 5);
-		lruCache = cacheFactory.getCacheInstance(cacheMetaData);
+		lruCache = CacheFactory.getCacheInstance(cacheMetaData);
 		Assert.assertEquals("Should be instance of LRUCache", true, lruCache instanceof LRUCache);
 	}
 

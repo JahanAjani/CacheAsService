@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import cache.framework.core.manager.CacheManager;
 import cache.framework.rest.auth.AuthManager;
 import cache.framework.rest.data.parser.CacheDataParser;
+import cache.framework.rest.data.parser.CreateCacheInputDataParser;
 
 @Configuration
 public class CacheServiceConfig {
@@ -21,4 +22,9 @@ public class CacheServiceConfig {
     public AuthManager getAuthManager(){
       return new AuthManager();
     }
+	
+	@Bean
+	public CreateCacheInputDataParser createCacheInputDataParser() {
+		return new CreateCacheInputDataParser();
+	}
 }
