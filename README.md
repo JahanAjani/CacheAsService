@@ -22,3 +22,7 @@ To add new cache type implement cache interface.
 	- API: `/cache/get?key=<pass key here>`
 	-example: /cache/get?key=snapshot1
 
+
+### Steps to use cache as a library:
+- `cache.framework.core` contains all core cache logic.
+- To use it as library either copy or add dependency in your project of this package.
