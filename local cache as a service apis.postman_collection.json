@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "f6c135bf-1d15-42f3-8b01-50a5a8813962",
+		"name": "local cache testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/cache/v1/auth?custID=1001",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/cache/v1/auth?custID=1001",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cache",
+						"v1",
+						"auth"
+					],
+					"query": [
+						{
+							"key": "custID",
+							"value": "1001"
+						}
+					]
+				},
+				"description": "get auth token for customer to create cache, insert value, get value in cache"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/cache/v1/1001/cache",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"token\":\"abc24b\",\n\t\"size\":5,\n\t\"cacheType\":\"lru\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/cache/v1/1001/cache",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cache",
+						"v1",
+						"1001",
+						"cache"
+					]
+				},
+				"description": "create cache, specify cache type in body"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/cache/v1/1001/cache/1/put",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"token\":\"abc24b\",\n\t\"key\":\"snapshot1\",\n\t\"value\":\"version2\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/cache/v1/1001/cache/1/put",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cache",
+						"v1",
+						"1001",
+						"cache",
+						"1",
+						"put"
+					]
+				},
+				"description": "insert into cache represented as cacheID of a valid customer."
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/cache/v1/1001/cache/1/get?key=snapshot1&token=abc24b",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/cache/v1/1001/cache/1/get?key=snapshot1&token=abc24b",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cache",
+						"v1",
+						"1001",
+						"cache",
+						"1",
+						"get"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "snapshot1"
+						},
+						{
+							"key": "token",
+							"value": "abc24b"
+						}
+					]
+				},
+				"description": "insert into customer cache of specified cacheID and valid token"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
