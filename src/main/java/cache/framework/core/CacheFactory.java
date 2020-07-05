@@ -1,7 +1,7 @@
 package cache.framework.core;
 
-import cache.framework.constants.CacheType;
-import cache.framework.datamodels.CacheMetaData;
+import cache.framework.core.constants.CacheType;
+import cache.framework.core.datamodels.CacheMetaData;
 
 public class CacheFactory {
 	

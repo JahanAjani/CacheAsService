@@ -1,4 +1,4 @@
-package cache.framework.datamodels;
+package cache.framework.core.datamodels;
 
 public class DataNode {
 	private String value;

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import cache.framework.manager.CacheManager;
+import cache.framework.core.manager.CacheManager;
 import cache.framework.rest.BaseResponse;
 import cache.framework.rest.CacheGetResponse;
 import cache.framework.rest.data.CacheInputData;

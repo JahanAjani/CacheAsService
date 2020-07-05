@@ -1,4 +1,4 @@
-package cache.framework.exceptions;
+package cache.framework.core.exceptions;
 
 public class CacheException extends Exception {
 	private static final long serialVersionUID = 1L;

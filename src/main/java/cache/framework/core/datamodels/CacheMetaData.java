@@ -1,6 +1,6 @@
-package cache.framework.datamodels;
+package cache.framework.core.datamodels;
 
-import cache.framework.constants.CacheType;
+import cache.framework.core.constants.CacheType;
 
 public class CacheMetaData {
 	private CacheType cacheType;

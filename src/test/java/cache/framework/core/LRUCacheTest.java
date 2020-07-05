@@ -2,7 +2,7 @@ package cache.framework.core;
 
 import org.junit.Test;
 
-import cache.framework.exceptions.CacheException;
+import cache.framework.core.exceptions.CacheException;
 import junit.framework.Assert;
 
 public class LRUCacheTest {

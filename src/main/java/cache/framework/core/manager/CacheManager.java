@@ -1,10 +1,10 @@
-package cache.framework.manager;
+package cache.framework.core.manager;
 
-import cache.framework.constants.CacheType;
 import cache.framework.core.Cache;
 import cache.framework.core.CacheFactory;
-import cache.framework.datamodels.CacheMetaData;
-import cache.framework.exceptions.CacheException;
+import cache.framework.core.constants.CacheType;
+import cache.framework.core.datamodels.CacheMetaData;
+import cache.framework.core.exceptions.CacheException;
 import cache.framework.rest.data.CacheInputData;
 
 public class CacheManager {

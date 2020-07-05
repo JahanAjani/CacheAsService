@@ -2,8 +2,8 @@ package cache.framework.core;
 
 import org.junit.Test;
 
-import cache.framework.constants.CacheType;
-import cache.framework.datamodels.CacheMetaData;
+import cache.framework.core.constants.CacheType;
+import cache.framework.core.datamodels.CacheMetaData;
 import junit.framework.Assert;
 
 public class CacheFactoryTest {

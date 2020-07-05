@@ -3,8 +3,8 @@ package cache.framework.core;
 import java.util.HashMap;
 import java.util.Map;
 
-import cache.framework.datamodels.DataNode;
-import cache.framework.exceptions.CacheException;
+import cache.framework.core.datamodels.DataNode;
+import cache.framework.core.exceptions.CacheException;
 
 public class LRUCache implements Cache {
 	private int maxSize;
