@@ -10,23 +10,43 @@ To add new cache type implement cache interface.
 - This will start spring boot application at default port 8080.
 - Go to browser/postman all apis are hosted at `localhost:8080`
 
-### Currently supported API and usage:
-1. Auth api to get valid unique auth-token for user:
+### Currently 5 APIs are supported:
+Cache index url: `localhost:8080/cache/`
 
-	- API: `/cache/v1/auth?custID=<Integer customer ID>`
+Auth api to get valid unique auth-token for user:
+
+	- API: GET `/v1/auth?custID=<Integer customer ID>`
 	- Customer ID is current hardcoded so, pass ID from range [1001-1003].
-	
-2. To add value to cache:
+	- Returns: unique token for custID.
+	- example: GET localhost:8080/cache/v1/auth?custID=1001
 
-	- API: `/cache/set`
+Create cache for a customer:
+
+	- API: POST `/v1/{custID}/cache`
+	- Body params:
+		- "token":<token got from auth api>
+		- "size":<cache max size>
+		- "cacheType": lru --currently only lru cache is supported.
+	- returns: unique CacheID.
+	- Example: localhost:8080/cache/v1/1001/cache
+				body:{\n\t\"token\":\"abc24b\",\n\t\"size\":5,\n\t\"cacheType\":\"lru\"\n}"
+
+To put value in cache:
+
+	- API: POST `/v1/{custID}/cache/{cacheID}/put`
 	- body params:
+		- "token": user token
 		- "key": key
 		- "value": value
-3. To retrieve value from cache:
-	
-	- API: `/cache/get?key=<pass key here>`
-	-example: /cache/get?key=snapshot1
+	- Returns: success or failure.
+	- Example: POST localhost:8080/cache/v1/1001/cache/1/put
+				 body:{\n\t\"token\":\"abc24b\",\n\t\"key\":\"snapshot1\",\n\t\"value\":\"version2\"\n}
 
+To retrieve value from cache:
+	
+	- API: GET `/v1/{custID}/cache/{cacheID}/get?key=<key>&token=<token>`
+	- example: localhost:8080/cache/v1/1001/cache/1/get?key=snapshot1&token=abc24b
+	- Returns: input key and value. If value is not present it return null.
 
 ### Steps to use cache as a library:
 - `cache.framework.core` contains all core cache logic.
