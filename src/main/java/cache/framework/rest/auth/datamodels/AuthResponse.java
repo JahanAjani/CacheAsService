@@ -1,4 +1,4 @@
-package cache.framework.rest.auth;
+package cache.framework.rest.auth.datamodels;
 
 public class AuthResponse {
 	private boolean success;

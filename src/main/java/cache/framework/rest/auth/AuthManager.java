@@ -21,4 +21,13 @@ public class AuthManager {
 		}
 		return authToken;
 	}
+	
+	public boolean isValid(Integer custID, String token) {
+		boolean isValidToken = false;
+		if(customerMap.containsKey(custID)) {
+			String savedToken = customerMap.get(custID);
+			isValidToken = savedToken.equals(token);
+		}
+		return isValidToken;
+	}
 }
