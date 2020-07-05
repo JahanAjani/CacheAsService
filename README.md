@@ -26,3 +26,5 @@ To add new cache type implement cache interface.
 ### Steps to use cache as a library:
 - `cache.framework.core` contains all core cache logic.
 - To use it as library either copy or add dependency in your project of this package.
+
+#####To test functionality of core cache library please run `CacheFactoryTest.java` & `LRUCacheTest.java` placed under `/CacheAsService/src/test/java/cache/framework/core`
