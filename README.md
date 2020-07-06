@@ -11,6 +11,8 @@ To add new cache type implement cache interface.
 - Go to browser/postman all apis are hosted at `localhost:8080`
 
 ### Currently 5 APIs are supported:
+For easy usage you can copy `local cache as a service apis.postman_collection.json` and open it in postman to use below apis.
+
 Cache index url: `localhost:8080/cache/`
 
 Auth api to get valid unique auth-token for user:
@@ -52,4 +54,4 @@ To retrieve value from cache:
 - `cache.framework.core` contains all core cache logic.
 - To use it as library either copy or add dependency in your project of this package.
 
-#####To test functionality of core cache library please run `CacheFactoryTest.java` & `LRUCacheTest.java` placed under `/CacheAsService/src/test/java/cache/framework/core`
+##### To test functionality of core cache library please run `CacheFactoryTest.java` & `LRUCacheTest.java` placed under `/CacheAsService/src/test/java/cache/framework/core`
