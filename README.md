@@ -1,5 +1,4 @@
 # CacheAsService
-Espressif Systems coding assignment.
 
 Current implementation supports LRU cache type only And String types only, but can be easily extended.
 
